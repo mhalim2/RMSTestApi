@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/assets/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>@ViewData["Title"] - RMS</title>
+</head>
+
+<body>
+    <section class="header">
+        <div class="logo">
+            <i class="ri-menu-line icon icon-0 menu"></i>
+            <h2>RMS</h2>
+        </div>
+        <div class="search--notification--profile">
+            <div class="search">
+                <input type="text" placeholder="Search Scdule..">
+                <button><i class="ri-search-2-line"></i></button>
+            </div>
+            <div class="notification--profile">
+                <div class="picon lock">
+                    <i class="ri-lock-line"></i>
+                </div>
+                <div class="picon bell">
+                    <i class="ri-notification-2-line"></i>
+                </div>
+                <div class="picon chat">
+                    <i class="ri-wechat-2-line"></i>
+                </div>
+                <div class="picon profile">
+                    <img src="~/assets/images/profile.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="sidebar">
+            <ul class="sidebar--items">
+                <li>
+                    <a href="/" id="active--link">
+                        <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
+                        <span class="sidebar--item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Patient/PatientList">
+                        <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
+                        <span class="sidebar--item">Patient List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Patient/AddPatient">
+                        <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
+                        <span class="sidebar--item" style="white-space: nowrap;">Add Patient</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Provider/ProviderList">
+                        <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
+                        <span class="sidebar--item">Provider List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Provider/AddProvider">
+                        <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
+                        <span class="sidebar--item" style="white-space: nowrap;">Add Provider</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Referral/ReferralList">
+                        <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
+                        <span class="sidebar--item">Referral List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Referral/AddReferral">
+                        <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
+                        <span class="sidebar--item" style="white-space: nowrap;">Add Referral</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Specialty/SpecialtyList">
+                        <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
+                        <span class="sidebar--item">Specialty List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Specialty/AddSpecialty">
+                        <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
+                        <span class="sidebar--item" style="white-space: nowrap;">Add Specialty</span>
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+        @RenderBody()
+    </section>
+    <script src="~/assets/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
+
+
+@*
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Web</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Web - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>*@

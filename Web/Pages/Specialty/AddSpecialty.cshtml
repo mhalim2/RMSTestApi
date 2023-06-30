@@ -1,0 +1,64 @@
+﻿@page
+@model Web.Pages.Specialty.AddSpecialtyModel
+
+@{
+    ViewData["Title"] = "Add Specialty";
+}
+
+<div class="main--content">
+
+    <div class="recent--patients">
+        <div class="title">
+            <h2 class="section--title">Add Specialty</h2>
+            @*<button class="add"><i class="ri-add-line"></i>Add Doctor</button>*@
+        </div>
+        @Html.AntiForgeryToken()
+        <table>
+            <tbody>
+                
+                <tr>
+                    <td>Specialty Name</td>
+                    <td><input type="text" id="SpecialtyName" name="Hsn" /></td>
+                    <td></td>
+                </tr>
+                
+
+                <tr>
+                    <td><input type="button" id="cmdSave" value="Save" /></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#cmdSave").click(function () {
+            var patient = '{Hsn: "' + $("#Hsn").val() + '",Dob: "' + $("#Dob").val() + '",FirstName: "' + $("#FirstName").val() + '",LastName: "' + $("#LastName").val() + '",Address: "' + $("#Address").val() + '",City: "' + $("#City").val() + '",Province: "' + $("#Province").val() + '" }';
+            $.ajax({
+                type: "POST",
+                url: "https://localhost:5001/api/specialties/addspecialty",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("XSRF-TOKEN",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                },
+                data: patient,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    alert(response.FirstName);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+    });
+</script>

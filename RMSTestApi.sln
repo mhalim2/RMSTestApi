@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "..\CoreWebAppA_30-06-2023_10-40AM_BDTime\CoreWebAppA\Web\Web.csproj", "{017D4A20-9E32-427D-92E2-2FA615465A39}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMSTestApi", "RMSTestApi\RMSTestApi.csproj", "{74813562-942C-4418-94FC-06E5E3E4C449}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{017D4A20-9E32-427D-92E2-2FA615465A39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{017D4A20-9E32-427D-92E2-2FA615465A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{017D4A20-9E32-427D-92E2-2FA615465A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{017D4A20-9E32-427D-92E2-2FA615465A39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74813562-942C-4418-94FC-06E5E3E4C449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74813562-942C-4418-94FC-06E5E3E4C449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74813562-942C-4418-94FC-06E5E3E4C449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74813562-942C-4418-94FC-06E5E3E4C449}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5A5BB42-A48D-48AF-B332-C9199CDEDFD0}
+	EndGlobalSection
+EndGlobal

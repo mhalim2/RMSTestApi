@@ -1,0 +1,89 @@
+﻿@page
+@model Web.Pages.Patient.PatientListModel
+
+
+@{
+    ViewData["Title"] = "Patient List";
+}
+
+<div class="main--content">
+
+    <div class="recent--patients">
+        <div class="title">
+            <h2 class="section--title">Recent Patients</h2>
+            <button class="add"><i class="ri-add-line"></i>Add Patient</button>
+        </div>
+        <div class="table" id="List">
+            <table>
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>DOB</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Abdul </td>
+                        <td>Halim</td>
+                        <td>1977-06-20</td>
+                        <td>Saskaton</td>
+                        <td>Saskaton</td>
+                        <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>William </td>
+                        <td>Campbel</td>
+                        <td>1979-06-20</td>
+                        <td>Saskaton</td>
+                        <td>Saskaton</td>
+                        <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "https://localhost:5001/api/patients/getpatients",
+                    //beforeSend: function (xhr) {
+                    //    xhr.setRequestHeader("XSRF-TOKEN",
+                    //        $('input:hidden[name="__RequestVerificationToken"]').val());
+                    //},
+                    //data: person,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        $.each(response[0], function (index, item) {
+                            var vNewRow = "<tr>" +
+                                "<td>1</td>" +
+                                "<td></td>" +
+                                "<td></td>" +
+                                "<td></td>" +
+                                "<td></td>" +
+                                "<td><span><i class='ri-edit-line edit'></i><i class='ri-delete-bin-line delete'></i></span></td>" +
+                                "</tr>";
+                            $('#List').find('tbody').append(vNewRow);
+                        });
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+        </script>
+
+    </div>
+</div>
+

@@ -1,0 +1,91 @@
+﻿@page
+@model Web.Pages.Referral.AddReferralModel
+
+@{
+    ViewData["Title"] = "Add Referral";
+}
+
+<div class="main--content">
+
+    <div class="recent--patients">
+        <div class="title">
+            <h2 class="section--title">Add Referral</h2>
+            @*<button class="add"><i class="ri-add-line"></i>Add Doctor</button>*@
+        </div>
+        @Html.AntiForgeryToken()
+        <table>
+            <tbody>
+                <tr>
+                    <td>Patient name</td>
+                    <td>
+                        <select id="PatientId">
+                            <option value="0">--Select--</option>
+                            <option value="1">Abdul Halim</option>
+                            <option value="3">William Campbel</option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Provider Name</td>
+                    <td>
+                        <select id="SpecialtyId">
+                            <option value="0">--Select--</option>
+                            <option value="1">Abdus	Sabur</option>
+                            <option value="2">Abdul	Kalam</option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Specialty Name</td>
+                    <td>
+                        <select id="SpecialtyId">
+                            <option value="0">--Select--</option>
+                            <option value="1">Dental</option>
+                            <option value="2">Heart</option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                
+
+                <tr>
+                    <td><input type="button" id="cmdSave" value="Save" /></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#cmdSave").click(function () {
+            var patient = '{Hsn: "' + $("#Hsn").val() + '",Dob: "' + $("#Dob").val() + '",FirstName: "' + $("#FirstName").val() + '",LastName: "' + $("#LastName").val() + '",Address: "' + $("#Address").val() + '",City: "' + $("#City").val() + '",Province: "' + $("#Province").val() + '" }';
+            $.ajax({
+                type: "POST",
+                url: "https://localhost:5001/api/referrals/addreferral",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("XSRF-TOKEN",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                },
+                data: patient,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    alert(response.FirstName);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+    });
+</script>
